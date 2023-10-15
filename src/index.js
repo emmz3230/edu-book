@@ -870,15 +870,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { books } from './books';
-import Book from './book';
+import Book from './Book';
+import './index.css'
 
-function BookList() {
+
+const BookList = () => {
        
     return(
         <section className='booklist' >
             {/* <EventExamples /> */}
-            {books.map((book) => {
-                return <Book {...book} key={book.id}    />
+            {books.map((book,index) => {
+                return <Book {...book} key={book.id} number={index}   />
             })}
         </section>
     )
@@ -886,14 +888,9 @@ function BookList() {
 
 
 
-
-
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<BookList/>)
-
 
 
 
